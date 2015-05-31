@@ -1,0 +1,64 @@
+/*6.1 (Assign grades) Write a program that reads student scores, gets the best score, and
+then assigns grades based on the following scheme:
+Grade is A if score is best-10
+Grade is B if score is best -20 ;
+Grade is C if score is best -30 ;
+Grade is D if score is best  -40;
+Grade is F otherwise.
+The program prompts the user to enter the total number of students, then prompts
+the user to enter all of the scores, and concludes by displaying the grades. Here is
+a sample run:*/
+
+package System.out;
+import java.util.Scanner;
+public class chap6_1 {
+	
+	public static void result ( int numofscore [], int max){
+	
+	for (int i = 0; i < numofscore.length; i++){
+		
+		if( numofscore[i]> max-10){
+			System.out.println("Student " + i + "score is " + numofscore[i] + " and grade is A" );}
+		
+		else if ( numofscore[i]>= max-20){
+			System.out.println("Student " + i + "score is " + numofscore[i] + " and grade is B" );}
+		
+		else if ( numofscore[i]>= max-30){
+			System.out.println("Student " + i + "score is " + numofscore[i] + " and grade is C" );}
+		
+		else if ( numofscore[i]>= max-40){
+			System.out.println("Student " + i + "score is " + numofscore[i] + " and grade is D" );}
+		}
+	}
+	
+	/*Searching the max score*/
+	public static int max (int numofscore[]){
+		
+		int max = numofscore[0];
+		for (int i = 1; i < numofscore.length; i++){
+		if (numofscore[i] > max)
+		max = numofscore[i];
+		}
+		
+		return max;
+		}
+	
+	public static void main (String[] args ){
+		
+		Scanner input = new Scanner (System.in);
+		System.out.print("Enter a new number of student");
+		int numofstu = input.nextInt();
+		/*Array*/
+		int [] numofscore = new int [numofstu];
+	
+		/*storing the value of score*/
+		for (int i=0; i < numofstu; i++ ){
+		System.out.print("Enter scores: ");
+		numofscore[i]=input.nextInt();
+		}
+		
+		int maxscore =  max(numofscore);
+		result(numofscore,maxscore);
+	}
+
+}
